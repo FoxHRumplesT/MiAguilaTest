@@ -1,0 +1,19 @@
+<div class="wrapper-sidebar">
+  <div class="head">
+    <img src="assets/img/main-logo.jpg">
+  </div>
+  <div class="profile-info">
+    <div class="img-photo"></div>
+    <h5 class="name">Jorge Solano</h5>
+    <span class="position">Beneficiario</span>
+  </div>
+  <hr>
+  <ul class="menu">
+    <li class="item" *ngFor="let option of menuOptions">
+      <a [routerLink]="[option.path]" routerLinkActive="active">
+        <img src="assets/img/eagle-logo.png">
+        <span class="label">{{ option.label }}</span>
+      </a>
+    </li>
+  </ul>
+</div>
