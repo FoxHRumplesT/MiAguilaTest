@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Ivesur",
+    "address": "Carrera 56 #19-54",
+    "location": { "lat": 4.6673179, "lng": -74.0566367 }
+  },
+  {
+    "name": "Mi Águila",
+    "address": "Carrera 15 #80-90",
+    "location": { "lat": 4.6372258, "lng": -74.1058592 }
+  },
+  {
+    "name": "Aeropuerto",
+    "address": "Aeropuerto Internacional El Dorado",
+    "location": { "lat": 4.6988549, "lng": -74.1434098 }
+  }
+]

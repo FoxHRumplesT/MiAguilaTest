@@ -1,8 +1,12 @@
 <div class="wrapper-request-aguila">
   <div class="map">
-    <app-generic-map></app-generic-map>
+    <app-generic-map [locations]="tripLocations"></app-generic-map>
   </div>
   <div class="menu-trips">
-    <app-request-aguila-trips></app-request-aguila-trips>
+    <app-request-aguila-trips
+      [favoriteTrips]="favoriteTrips"
+      [selectedTrips]="currentTrip"
+      (selectTrip)="selectTrip($event)">
+    </app-request-aguila-trips>
   </div>
 </div>

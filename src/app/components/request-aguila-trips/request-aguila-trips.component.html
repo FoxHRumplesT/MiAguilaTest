@@ -1,3 +1,48 @@
 <div class="wrapper-aguila-trips">
-  <div class="head"></div>
+  <div class="head">
+    <ul class="from-users">
+      <li>
+        <figure>
+          <img [src]="'assets/img/user.svg'">
+        </figure>
+        <span>Para mi</span>
+      </li>
+      <li>
+        <figure>
+          <img [src]="'assets/img/user.svg'">
+        </figure>
+        <span>Colega</span>
+      </li>
+      <li>
+        <figure>
+          <img [src]="'assets/img/user.svg'">
+        </figure>
+        <span>Invitado</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="trip-steps">
+    <ul>
+      <li class="step" [class.active]="selectedTrips.length === (i + 1)" *ngFor="let trip of selectedTrips; let i = index">
+        <div class="circle">
+          <span class="number">{{ i + 1 }}</span>
+        </div>
+        <span class="name">{{ i === 0 ? 'Origen' : 'Parada' }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="favorite-trips">
+    <h4 class="title">Favoritos</h4>
+    <ul>
+      <li class="trip" *ngFor="let trip of favoriteTrips" (click)="selectTrip.emit(trip)">
+        <img src="assets/img/star.svg">
+        <div class="address-info">
+          <p class="name">{{ trip.name }}</p>
+          <span class="address">{{ trip.address }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

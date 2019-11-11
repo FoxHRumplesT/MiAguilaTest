@@ -7,6 +7,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RequestAguilaComponent } from './components/request-aguila/request-aguila.component';
 import { GenericMapComponent } from './components/generic-map/generic-map.component';
 import { RequestAguilaTripsComponent } from './components/request-aguila-trips/request-aguila-trips.component';
+import { RequestAguilaService } from './services/request-aguila.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,12 @@ import { RequestAguilaTripsComponent } from './components/request-aguila-trips/r
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    RequestAguilaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
