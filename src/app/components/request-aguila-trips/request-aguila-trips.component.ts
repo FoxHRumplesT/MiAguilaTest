@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges} from '@angular/core';
 
 import { Trip } from 'src/app/entities/trip.entity';
 
@@ -7,7 +7,7 @@ import { Trip } from 'src/app/entities/trip.entity';
   templateUrl: './request-aguila-trips.component.html',
   styleUrls: ['./request-aguila-trips.component.sass']
 })
-export class RequestAguilaTripsComponent {
+export class RequestAguilaTripsComponent implements OnChanges {
 
   private currentIndexStopSelected = 0;
 
@@ -16,6 +16,12 @@ export class RequestAguilaTripsComponent {
   @Output() selectTrip: EventEmitter<Trip> = new EventEmitter();
   @Output() selectStop: EventEmitter<number> = new EventEmitter();
   @Output() toggleShowTrips: EventEmitter<void> = new EventEmitter();
+
+  ngOnChanges(): void {
+    if (this.selectedTrips) {
+      this.currentIndexStopSelected = this.selectedTrips.length - 1;
+    }
+  }
 
   public isCurrentStopSelected(i: number): boolean {
     return this.currentIndexStopSelected === i;
@@ -29,7 +35,7 @@ export class RequestAguilaTripsComponent {
   public selectCurrentTrip(trip: Trip): void {
     if (!this.selectedTrips.find(t => t.name === trip.name)) {
       this.selectTrip.emit(trip);
-      this.currentIndexStopSelected = this.selectedTrips.length;
+      this.currentIndexStopSelected = this.selectedTrips.length - 1;
     } else {
       this.currentIndexStopSelected = this.selectedTrips.length - 1;
     }

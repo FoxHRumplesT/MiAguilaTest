@@ -49,7 +49,7 @@ export class RequestAguilaComponent implements OnInit, OnDestroy {
   public selectTrip(trip: Trip): void {
     this.currentTrip.push(trip);
     this.selectStop(this.currentTrip.length - 1);
-    this.cdr.detectChanges();
+    this.cdr.markForCheck();
   }
 
   public selectStop(i: number): void {
