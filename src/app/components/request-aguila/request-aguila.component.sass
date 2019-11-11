@@ -1,3 +1,5 @@
+@import '../../../styles/variables'
+
 .wrapper-request-aguila
   width: 100%
   height: 100%
@@ -13,3 +15,11 @@
     width: 300px
     position: absolute
     height: calc(100% - 40px)
+
+@media screen and ( max-width: $break-mobile )
+  .wrapper-request-aguila
+    .menu-trips
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%

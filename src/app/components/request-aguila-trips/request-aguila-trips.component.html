@@ -24,7 +24,10 @@
 
   <div class="trip-steps">
     <ul>
-      <li class="step" [class.active]="selectedTrips.length === (i + 1)" *ngFor="let trip of selectedTrips; let i = index">
+      <li class="step"
+          [class.active]="isCurrentStopSelected(i)"
+          *ngFor="let trip of selectedTrips; let i = index"
+          (click)="selectCurrentStop(i)">
         <div class="circle">
           <span class="number">{{ i + 1 }}</span>
         </div>
@@ -36,7 +39,7 @@
   <div class="favorite-trips">
     <h4 class="title">Favoritos</h4>
     <ul>
-      <li class="trip" *ngFor="let trip of favoriteTrips" (click)="selectTrip.emit(trip)">
+      <li class="trip" *ngFor="let trip of favoriteTrips" (click)="selectCurrentTrip(trip)">
         <img src="assets/img/star.svg">
         <div class="address-info">
           <p class="name">{{ trip.name }}</p>
@@ -44,5 +47,8 @@
         </div>
       </li>
     </ul>
+  </div>
+  <div class="actions">
+    <button (click)="toggleShowTrips.emit()">-></button>
   </div>
 </div>

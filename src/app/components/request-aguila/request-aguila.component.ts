@@ -17,6 +17,8 @@ export class RequestAguilaComponent implements OnInit, OnDestroy {
 
   public favoriteTrips: Trip[] = [];
   public currentTrip: Trip[] = [];
+  public currentCenterLocation: Location;
+  public showTrips = true;
 
   private subscriptions: Subscription[] = [];
 
@@ -32,6 +34,12 @@ export class RequestAguilaComponent implements OnInit, OnDestroy {
         this.cdr.detectChanges();
       })
     );
+    this.subscriptions.push(
+      this.requestService.currentTrip$.subscribe(data => {
+        this.currentTrip = data;
+        this.cdr.detectChanges();
+      })
+    );
   }
 
   ngOnDestroy(): void {
@@ -40,7 +48,16 @@ export class RequestAguilaComponent implements OnInit, OnDestroy {
 
   public selectTrip(trip: Trip): void {
     this.currentTrip.push(trip);
+    this.selectStop(this.currentTrip.length - 1);
     this.cdr.detectChanges();
+  }
+
+  public selectStop(i: number): void {
+    this.currentCenterLocation = this.currentTrip[i] ? this.currentTrip[i].location : null;
+  }
+
+  public toggleShowTrips(): void {
+    this.showTrips = !this.showTrips;
   }
 
   get tripLocations(): Location[] {

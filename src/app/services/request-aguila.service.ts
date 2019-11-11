@@ -14,4 +14,8 @@ export class RequestAguilaService {
   get favoriteTrips$(): Observable<Trip[]> {
     return this.http.get<Trip[]>('./assets/data/favorite-trips.json');
   }
+
+  get currentTrip$(): Observable<Trip[]> {
+    return this.http.get<Trip[]>('./assets/data/current-trip.json');
+  }
 }

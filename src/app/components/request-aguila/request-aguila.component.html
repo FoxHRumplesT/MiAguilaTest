@@ -1,11 +1,16 @@
 <div class="wrapper-request-aguila">
   <div class="map">
-    <app-generic-map [locations]="tripLocations"></app-generic-map>
+    <app-generic-map
+      [centerLocation]="currentCenterLocation"
+      [locations]="tripLocations">
+    </app-generic-map>
   </div>
-  <div class="menu-trips">
+  <div class="menu-trips" *ngIf="showTrips">
     <app-request-aguila-trips
       [favoriteTrips]="favoriteTrips"
       [selectedTrips]="currentTrip"
+      (toggleShowTrips)="toggleShowTrips()"
+      (selectStop)="selectStop($event)"
       (selectTrip)="selectTrip($event)">
     </app-request-aguila-trips>
   </div>

@@ -13,10 +13,5 @@
     "name": "Aeropuerto",
     "address": "Aeropuerto Internacional El Dorado",
     "location": { "lat": 4.6988549, "lng": -74.1434098 }
-  },
-  {
-    "name": "Lourdes Center Chapinero",
-    "address": "Cl. 67 #10-83, Bogotá",
-    "location": { "lat": 4.651927, "lng": -74.0625708 }
   }
 ]
